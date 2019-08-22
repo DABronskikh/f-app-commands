@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
 import dialog from './dialog'
 import user from './user'
@@ -9,7 +9,7 @@ import boards from './boards'
 import tasksLists from './taskslists'
 import Filter from './filter'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {

@@ -13,7 +13,6 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-
 *.cache
 *.log(error))
 *.cache
