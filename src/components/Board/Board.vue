@@ -35,26 +35,27 @@
 
         </v-toolbar>
 
-        <div class="root-box style-1 pl-2 " :style="{'background': `url('${bf}')`}">
-            <draggable class="pre" v-model="columns" @change="onColumnMoved($event, columns)">
+        <div>
+            <draggable class="pre root-box style-1 pl-2 " :style="{'background': `url('${bf}')`}" v-model="columns" @change="onColumnMoved($event, columns)">
                 <div class="scrollbar-box mt-4 mb-4 mr-2 ml-2" v-for="(column, index) in columns" :key="column.id">
 
                     <div class="fff column">
                         <update-column-title :column="column"></update-column-title>
                     </div>
 
-                    <div class="scrollbar fff column style-1  pa-1">
-                        <draggable v-model="column.tasks" item @change="onTaskMoved($event, column)">
+
+                        <draggable class="scrollbar fff column style-1  pa-1" v-model="column.tasks" item @change="onTaskMoved($event, column)">
 
                             <div class="item" v-for="element in column.tasks" :key="element.id" v-show="element.labels.indexOf(labelActiv) !== -1 || !filterOff" @click="openTaskDialog(element, column.id)">
                                 <task-box-mini :task="element">
                                 </task-box-mini>
                             </div>
-                            <create-new-task slot="footer" class="fff column" :id="column.id">
-                            </create-new-task>
-                        </draggable>
 
-                    </div>
+                        </draggable>
+                    <create-new-task class="fff column" :id="column.id">
+                    </create-new-task>
+
+
 
 
                     <div class="scrollbar fff column style-1  pa-1">
@@ -80,8 +81,8 @@
 
                 </div>
                 <!--добавить столбец-->
-                <div class="scrollbar-box mt-4 mb-5 mr-2 ml-2 pr-3" slot="footer">
-                    <v-card>
+                <div>
+                    <v-card class="scrollbar-box mt-4 mb-5 mr-2 ml-2 pr-3" slot="footer">
                         <create-column class="w100" :id="id"></create-column>
                     </v-card>
                 </div>
