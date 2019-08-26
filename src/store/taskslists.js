@@ -613,6 +613,66 @@ export default {
           }
         )
     },
+    async updateTaskPosition ({commit, getters}, payload) {
+      return fetch(`${URL}/api/v1/task/change-position`, {
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': '*',
+          'Authorization': getters.user,
+        },
+        method: 'PATCH',
+        body: JSON.stringify(payload)
+      })
+        .then(response => response.json())
+         .then(data => {
+           if (data.status === -1) {
+            console.error(data.message)
+            commit('clearSnackbar')
+            commit('setSnackbarMsg', 'Ошибка перемещения задачи')
+            commit('setSnackbarType', 'error')
+           }})     
+        .catch(
+          error => {
+            console.error(error)
+            commit('clearSnackbar')
+            commit('setSnackbarMsg', 'Ошибка загрузки данных')
+            commit('setSnackbarType', 'error')
+          }
+        )
+    },
+    async updateColumnPosition ({commit, getters}, payload) {
+      return fetch(`${URL}/api/v1/column/change-position`, {
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': '*',
+          'Authorization': getters.user,
+        },
+        method: 'PATCH',
+        body: JSON.stringify(payload)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === -1) {
+         console.error(data.message)
+         commit('clearSnackbar')
+         commit('setSnackbarMsg', 'Ошибка перемещения колонки')
+         commit('setSnackbarType', 'error')
+        }})
+        .catch(
+          error => {
+            console.error(error)
+            commit('clearSnackbar')
+            commit('setSnackbarMsg', 'Ошибка загрузки данных')
+            commit('setSnackbarType', 'error')
+          }
+        )
+    },
   },
   getters: {
     columns (state) {
