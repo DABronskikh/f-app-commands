@@ -33,7 +33,7 @@
             </v-toolbar-side-icon>
             <v-toolbar-title>
                 <router-link to="/" tag="span" class="pointer">
-                    app-commands
+                    Твоя вторая память
                 </router-link>
             </v-toolbar-title>
             <v-spacer></v-spacer>
