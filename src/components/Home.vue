@@ -17,7 +17,8 @@
         <v-container class="show large mt-3">
             <v-layout row>
                 <v-flex xs12 sm8 md8>
-                    <v-card-text class="desc"><span class="descBold">Твоя вторая память</span>
+                    <v-card-text class="desc">
+                        <span class="descBold">Твоя вторая память</span>
                         - это современный, удобный, простой в использовании
                         таск-менеджер. Таск-менеджер для всех и каждого. Вместо
                         записной книжки и узелков на память:)
@@ -51,7 +52,8 @@
         <v-container class="show small mt-3">
             <v-layout row justify-center>
                 <v-flex xs10 sm6 md8>
-                    <v-card-text  class="desc"><span class="descBold">Твоя вторая память</span>
+                    <v-card-text class="desc">
+                        <span class="descBold">Твоя вторая память</span>
                         - это современный, удобный, простой в использовании
                         таск-менеджер. Таск-менеджер для всех и каждого. Вместо
                         записной книжки и узелков на память:)
@@ -60,7 +62,7 @@
             </v-layout>
 
             <v-layout row justify-center>
-                <v-flex xs10 sm6 md4 >
+                <v-flex xs10 sm6 md4>
                     <v-img
                             :src="items[0]"
                     />
@@ -93,8 +95,12 @@
   export default {
     data: () => ({
       items: [
-        {src: require('@/../static/assets/business.jpg')},
-        {src: require('@/../static//assets/travel.jpg')}
+        {
+          src: require('@/../static/assets/business.jpg')
+        },
+        {
+          src: require('@/../static//assets/travel.jpg')
+        }
       ]
     })
   }
@@ -137,5 +143,4 @@
             padding-left: 0 !important;
         }
     }
-
 </style>
